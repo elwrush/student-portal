@@ -1,0 +1,23 @@
+{
+  "name": "student-portal",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elwrush/student-portal.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elwrush/student-portal/issues"
+  },
+  "homepage": "https://github.com/elwrush/student-portal#readme",
+  "description": "",
+  "dependencies": {
+    "googleapis": "^148.0.0"
+  }
+}

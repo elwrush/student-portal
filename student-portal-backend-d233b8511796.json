@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "student-portal-backend",
+  "private_key_id": "d233b8511796d5743f0adefd1e24d8cdd363c732",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCpcln6DOZKeN8H\npbDcSF+s1aJy5xM3KWrp2tKkMX/MvCQgp0n45uXeDXyu0n/9p+yelIG5J0smNeIc\nhYfb+BktAU7dUiZp3LF+3ZXwLonORZIIpapPNkrCk85aWrd6aPhLmLPUeHW4X29I\nBSeTcfr2fMMs0HQ8wKwEdgHTxLUl14EhdF2nGsT5MWzLjL3qtKGATEJBJmlj44PL\n1pB20dspJcxA8T1/JWpT1Th8xr/pJrbvegt0dgSXKXjPaq9HTuxE8LLFOQxMP7jh\nVUFULeNwB+PDF2K2ng00qKz7J+69JZu7188sohO91z1d+k64TJiLwxQjemhkbSyl\nz1mDYnTRAgMBAAECggEAA6DMbud0Td9pLR193DWbgNShMhMjDPEQ1jmGfZgGu8BC\niMV0NsVg4iCJTSf6MBj2ns2gunFuMT8BnKk6R7o39cf7o48E/grI7SW69mXUsws3\nzYIYk7IepyxphHNBTvhs6pd2MEQ1BxHaDOF5X7WW0UzKFA1Rk9RvSngpYVqqo0kB\nUiPtfllxhuM1W3y5ulGFz/f893gnB7Ty0LixmRQgd5XMhwsxkxJ78neuxsAIUGRR\nVAw/X6FESoMFvZq0vKzhv16veKKp4B57u7nCT1D2lQAdydmt/k2KmyEjRplbGfXg\nCdViy5TsKoKrjQ8bjkE90TWf2vJNx0KZXjD1dVTwkQKBgQDSjC2WLeOGcQnav5+W\nuYZ7IFDAHihnfE29//uK9vB8vcG+WLArMC+RkoA+U0gWFVoAuytEfW154GbztmlJ\n8Wo7qc+bKIKy9fu11K02LXzdvhyaJRJh80mth/gbXITZ2vyZseWuUkubMpKQ+QT9\nEwXf6wJpQRCHGcT+SxAN141ceQKBgQDOBsAeZe9XpbYksAKkGwO10KBB+TF0LerI\nXW+Z3A8+Fw7WVtweWJ5dwhVmct4ziG43b/7LXaBuqNZzSYrjduRienxiNu9y3ymK\nVNseVqrWiuNA3dTed/pnq6RRRMOzXE3Ev6nccjg7n5gIzQH6Je3ROEY+JBs1ytbE\n/d/g2VKVGQKBgH0K93/7nOcZdyrNJ3CSmoXBeXO/9WsQbfNrde7gHY9X+xqa/XWI\n1pd0FGnveB51a9CHWHkCrOP3G+2d5gYeNGNexId3lbfHU0h4GK7WcRQYdlAtuC8o\nGBfRas6FMflYjzCQcMII6hIwBM/ItOfARnrnzbTJCZHTAiWsWsp9u9yxAoGBAJo4\nz2Nx5qHzd88qui9h0XsuOmhoQy62mIN3/exsoDRYSlEEIC3PJG0GtcJExjRJMkfp\nXA+bfFaZqD4QlRkEjJ1zFtzmRoP0rUHRl1y0f5mtycNqysflg9pKz+vNz7jZpZVb\n66kLDzECnGoqHArGjakJuPsXSA8SUYaQjB/iTkExAoGBAIHMCscM+5SvaftdbwuT\nOz+WdpjCwaaWKSdeTf8lcpJuedfKsVFNfbDfwj/dKOZ000DHzgS2sks+fe4/Thwt\nGaPutRh953cA3zZ7pyCPdSHW/rsh/iXiaETJQpppJ1wb2u8Izm23lRFlWe9Tbdwf\ntiwRtwGEA1tzWVAHr+2ShLm1\n-----END PRIVATE KEY-----\n",
+  "client_email": "netlify-sheet-reader@student-portal-backend.iam.gserviceaccount.com",
+  "client_id": "106894222399693825862",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/netlify-sheet-reader%40student-portal-backend.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

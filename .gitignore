@@ -1,0 +1,8 @@
+# Node dependencies
+        node_modules
+
+        # Environment files (if any, good practice)
+        .env
+
+        # Service account keys (if accidentally placed here)
+        *.json
