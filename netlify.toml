@@ -1,13 +1,8 @@
- [
-functions
-]
-          directory = "netlify/functions"
-          node_bundler = "esbuild" # Recommended bundler for faster deploys
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild" # Recommended bundler for faster deploys
 
-        [[
-redirects
-]]
-          from = "/api/*"
-          to = "/.netlify/functions/:splat"
-          status = 200
-       
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
