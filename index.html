@@ -1,13 +1,138 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Student Portal Placeholder</title>
+    <title>Student Portal</title>
+    <style>
+        /* Basic styling for the table */
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        #scores-output {
+            margin-top: 20px;
+        }
+        body {
+            font-family: sans-serif;
+        }
+    </style>
 </head>
 <body>
-    <h1>Student Portal Coming Soon...</h1>
-    <div data-netlify-identity-menu></div> 
-    <p>Site linked via GitHub.</p>
+    <h1>Student Portal</h1>
 
+    <!-- Netlify Identity Login/Signup Buttons will appear here -->
+    <div data-netlify-identity-menu></div>
+
+    <!-- Area to display scores -->
+    <div id="scores-output">
+        <!-- Scores will be loaded here -->
+    </div>
+
+    <!-- Include the Netlify Identity Widget script -->
     <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+    <!-- Script to handle login state and fetch scores -->
+    <script>
+      const scoresOutput = document.getElementById('scores-output');
+
+      // Function to fetch scores from our Netlify function
+      const fetchScores = async (user) => {
+        if (!user) {
+            scoresOutput.innerHTML = '<p>Please log in to view scores.</p>';
+            return;
+        }
+
+        scoresOutput.innerHTML = '<p>Loading scores...</p>';
+
+        try {
+            // Get the auth token from the logged-in user
+            const token = await user.jwt();
+
+            // Call our Netlify function using the redirect path from netlify.toml
+            const response = await fetch('/api/get-scores', {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}` // Send token for authentication
+                }
+            });
+
+            if (!response.ok) {
+                // Handle errors from the function (like 401, 404, 500)
+                const errorData = await response.json().catch(() => ({ error: `HTTP error ${response.status}` })); // Handle non-JSON errors too
+                throw new Error(errorData.error || `Error fetching scores: ${response.statusText}`);
+            }
+
+            const result = await response.json(); // Expect { data: { Header1: value1, ... }, headers: [Header1, ...] }
+
+            // Display the data (simple table example)
+            if (result && result.data && result.headers && result.headers.length > 0) {
+                 // Filter out the email header for display if desired
+                 const displayHeaders = result.headers.filter(h => h.toLowerCase() !== 'studentemail');
+
+                 let tableHTML = '<h2>Your Scores</h2><table><thead><tr>';
+                 // Add headers
+                 displayHeaders.forEach(header => {
+                     tableHTML += `<th>${header}</th>`;
+                 });
+                 tableHTML += '</tr></thead><tbody><tr>';
+                 // Add data cells based on display headers
+                 displayHeaders.forEach(header => {
+                     tableHTML += `<td>${result.data[header] || ''}</td>`; // Use data object with header keys
+                 });
+                 tableHTML += '</tr></tbody></table>';
+                 scoresOutput.innerHTML = tableHTML;
+            } else {
+                 scoresOutput.innerHTML = '<p>No score data found for your email.</p>';
+            }
+
+        } catch (error) {
+            console.error('Error:', error);
+            scoresOutput.innerHTML = `<p style="color: red;">Error loading scores: ${error.message}</p>`;
+        }
+      };
+
+      // --- Netlify Identity Widget Event Listeners ---
+
+      // When the widget is ready
+      netlifyIdentity.on('init', (user) => {
+        if (user) {
+            // User is already logged in on init
+            console.log('User already logged in:', user.email);
+            fetchScores(user);
+        } else {
+            console.log('User not logged in on init');
+            scoresOutput.innerHTML = '<p>Please log in to view scores.</p>';
+        }
+      });
+
+      // When user logs in
+      netlifyIdentity.on('login', (user) => {
+        console.log('User logged in:', user.email);
+        netlifyIdentity.close(); // Close the login modal
+        fetchScores(user);
+      });
+
+      // When user logs out
+      netlifyIdentity.on('logout', () => {
+        console.log('User logged out');
+        scoresOutput.innerHTML = '<p>You have been logged out.</p>';
+      });
+
+      // Optional: Handle errors during login/signup
+      netlifyIdentity.on('error', (err) => {
+        console.error('Identity Error:', err);
+        scoresOutput.innerHTML = `<p style="color: red;">Login/Signup Error: ${err.message}</p>`;
+      });
+
+
+    </script>
 </body>
 </html>
